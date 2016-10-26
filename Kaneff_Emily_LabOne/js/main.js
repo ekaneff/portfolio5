@@ -2,6 +2,7 @@
 //on page load event
 window.addEventListener("load", (e) => {
 	console.log("Page loaded")
+	//create instance of application
 	var app = new Assignment();
 });
 
@@ -28,7 +29,7 @@ class Assignment {
 class Controller {
 	constructor() {
 		console.log("Controller activated");
-
+		
 		//model and view references
 		this.model = new Model();
 		this.view = new View();
@@ -46,6 +47,16 @@ class Controller {
 				//add data object to books array
 				this.booksArr.push(bookObj);
 				this.getData();
+
+				//clear input fields 
+				//========================== //
+				// DO THIS BETTER LATER OMG  //
+				//========================== //
+				var formData = document.querySelectorAll("input[type=text]");
+				formData[0].value = '';
+				formData[1].value = '';
+				formData[2].value = '';
+
 			}
 		});		
 	}
@@ -56,7 +67,10 @@ class Controller {
 
 		//delete buttons
 		var deleteBtns = document.querySelectorAll(".delete");
+
+		//assigning event listener to each delete button
 		for (var i = 0; i < deleteBtns.length; i++) {
+			//event listener for delete button click
 			deleteBtns[i].addEventListener("click", (e) => {
 				var idSplit = Utils.split(e);
 				this.view.printBooks(this.model.delete(idSplit[1], this.booksArr));
@@ -66,11 +80,23 @@ class Controller {
 
 		//edit buttons
 		var editBtns = document.querySelectorAll(".edit");
+
+		//assigning event listener to each edit button
 		for (var i = 0; i < editBtns.length; i++) {
+			//event listener for edit buttons
 			editBtns[i].addEventListener("click", (e) => {
 				var idSplit = Utils.split(e);
-				//this.view.printBooks(this.model.delete(idSplit[1], this.booksArr));
-				
+				this.view.editForm(this.booksArr[idSplit[1]]);
+
+				//save button on edit form
+				document.querySelector("#save").addEventListener("click", (e) => {
+					this.model.updateObj(this.booksArr[idSplit[1]]);
+					this.view.printBooks(this.booksArr);
+					this.getData();
+
+					//clear save form
+					document.getElementById("editForm").innerHTML = "";
+				});
 			});
 		}
 	}
@@ -87,12 +113,20 @@ class Model {
 		var formData = document.querySelectorAll("input[type=text]");
 		obj.title = formData[0].value;
 		obj.author = formData[1].value;
+		obj.genre = formData[2].value;ß
+		return obj;
+	}
+
+	updateObj(obj) {
+		// getting values from editForm 
+		var formData = document.querySelectorAll(".edit");
+		
+		obj.title = formData[0].value;
+		obj.author = formData[1].value;
 		obj.genre = formData[2].value;
 
-		//clear input fields
-
-		
 		return obj;
+
 	}
 
 	delete(id, bookArr) {
@@ -109,12 +143,16 @@ class View {
 
 	printBooks(data) {
 		var content = '';
+
+		//for every object in the array, create a dom element for each part
 		for (var i = 0; i < data.length; i++) {
+			content += "<div>";
 			content += "<h2>Title: " + data[i].title + "</h2>";
 			content += "<h3>Author: " + data[i].author + "</h3>";
 			content += "<h4>Genre: " + data[i].genre + "</h4>";
 			content += "<button class='edit' id='edit_" + i + "'>Edit</button>";
 			content += "<button class='delete' id='delete_" + i + "'>Delete</button>";
+			content += "</div>";
 		}
 
 		//push data with html tags to DOM
@@ -123,8 +161,19 @@ class View {
  
 	}
 
-	editForm() {
+	editForm(data) {
+		//create and populate edit form with correct values
+		var content = '';
 
+		content += "<form id='edit'>";
+		content += "<label>Title: <input type='text' class='edit' id='editTitle' value='" + data.title + "'/> </label>";
+		content += "<label>Author: <input type='text' class='edit' id='editAuthor' value='" + data.author + "'/> </label>";
+		content += "<label>Genre: <input type='text' class='edit' id='editGenre' value='" + data.genre + "'/> </label>";
+		content += "<button type='button' id='save'>Save</button>";
+		content += "</form>";
+		
+		var parent = document.querySelector("#editForm");
+		parent.innerHTML = content;
 	}
 }
 
@@ -142,20 +191,9 @@ class Utils {
 		throw "Don't instiantiate your utils class";
 	}
 
+	//split id's
 	static split(eventObj) {
 		var temp = eventObj.target.id.split("_");
 		return temp;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
