@@ -1,3 +1,7 @@
+/*
+* Created by Emily Kaneff 2016
+*/
+
 
 //on page load event
 window.addEventListener("load", (e) => {
@@ -29,7 +33,7 @@ class Assignment {
 class Controller {
 	constructor() {
 		console.log("Controller activated");
-		
+
 		//model and view references
 		this.model = new Model();
 		this.view = new View();
@@ -113,7 +117,7 @@ class Model {
 		var formData = document.querySelectorAll("input[type=text]");
 		obj.title = formData[0].value;
 		obj.author = formData[1].value;
-		obj.genre = formData[2].value;ß
+		obj.genre = formData[2].value;
 		return obj;
 	}
 
@@ -146,13 +150,13 @@ class View {
 
 		//for every object in the array, create a dom element for each part
 		for (var i = 0; i < data.length; i++) {
-			content += "<div>";
+			content += "<article>";
 			content += "<h2>Title: " + data[i].title + "</h2>";
 			content += "<h3>Author: " + data[i].author + "</h3>";
 			content += "<h4>Genre: " + data[i].genre + "</h4>";
 			content += "<button class='edit' id='edit_" + i + "'>Edit</button>";
 			content += "<button class='delete' id='delete_" + i + "'>Delete</button>";
-			content += "</div>";
+			content += "</article>";
 		}
 
 		//push data with html tags to DOM
