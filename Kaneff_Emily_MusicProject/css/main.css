@@ -1,0 +1,200 @@
+/* 
+===============================
+      GENERICS AND RESET
+===============================
+*/
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	padding: 0;
+	/*padding-bottom: 200px;*/
+	font-family: 'Rubik', sans-serif;
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+    ),
+    url('../assets/bg.jpeg');
+	background-position: center center;
+  	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.contain {
+	width: 90%;
+	margin: 0 auto;
+}
+
+header {
+	color: white;
+}
+
+/* 
+===============================
+          NAVIGATION
+===============================
+*/
+
+nav h1 {
+	font-size: 35px;
+	width: 400px;
+	float: left;
+	margin: 10px 0;
+	font-family: 'Bitter', serif;
+}
+
+ul {
+	float: right;
+	margin: 20px 0;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+nav li {
+	float: left;
+	margin: 0 5px;
+}
+
+nav ul::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+nav::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+/* 
+===============================
+          MAIN PAGE
+===============================
+*/
+
+#cta{
+	color: white;
+	text-align: center;
+	font-size: 60px;
+	margin: 100px 0 60px 0;
+	font-family: 'Bitter', serif;
+}
+
+#main h2 {
+	color: white;
+	text-align: center;
+	font-size: 35px;
+
+}
+
+#main form {
+	text-align: center;
+	padding: 20px;
+	width: 80%
+	margin: 0 auto;
+}
+
+#main input[type=text] {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	width: 60%;
+	height: 40px;
+	padding: 5px;
+	font-size: 25px;
+}
+
+#main input[type=submit] {
+	border: none;
+	background: rgba(137, 225, 175, .95);
+	height: 50px;
+	width: 80px;
+	padding: 5px;
+	font-size: 25px;
+	border-radius: 5px;
+}
+
+/* 
+===============================
+             DASH
+===============================
+*/
+
+#dash {
+	display: none;
+}
+
+#dash nav {
+	background: rgba(147,192,164,.90);
+	margin-bottom: 50px;
+}
+
+#dash header {
+	background: url('../assets/headerbg.jpeg');
+	background-position: center center;
+  	background-size: cover;
+	background-repeat: no-repeat;
+	padding-bottom: 50px;
+}
+
+#dash form {
+	text-align: center;
+	padding: 20px;
+	width: 80%
+	margin: 0 auto;
+}
+
+#dash input[type=text] {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	width: 60%;
+	height: 40px;
+	padding: 5px;
+	font-size: 25px;
+}
+
+#dash input[type=submit] {
+	border: none;
+	background: rgba(147,192,164,.90);
+	height: 50px;
+	width: 80px;
+	padding: 5px;
+	font-size: 25px;
+	border-radius: 5px;
+}
+
+/* 
+===============================
+        DASH RESULTS
+===============================
+*/
+
+#dash h2 {
+	border-bottom: 2px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+

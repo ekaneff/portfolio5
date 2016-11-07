@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Project</title>
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Bitter|Rubik" rel="stylesheet">
+	<!-- <link href="css/reset.css" rel="stylesheet" /> -->
+	<link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body id="dash">
+	
+<header>
+	<nav>
+		<div class="contain">
+			<h1>ArtistFind</h1>
+			<ul>
+				<li><a href="#" id="login">Log in</a></li>
+				<li><a href="#" id="signup">Sign up</a></li>
+			</ul>
+		</div>
+	</nav>
+	<form>
+		<input type="text" id="search" placeholder="Enter genre..." />
+		<input type="submit" value="Go" id="go"/>
+	</form>
+</header>
+
+<section id="results">
+	<div class="contain">
+
+	<h2>Genre: <span id="genreName"></span></h2> 
+
+		<section id="artists"></section>
+	</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
