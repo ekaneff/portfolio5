@@ -4,6 +4,7 @@
 	<title>Music Project</title>
 	<meta charset="utf-8" />
 	<link href="https://fonts.googleapis.com/css?family=Bitter|Rubik" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<!-- <link href="css/reset.css" rel="stylesheet" /> -->
 	<link href="css/main.css" rel="stylesheet" />
 </head>
@@ -25,7 +26,33 @@
 		<h2>Discover new artists based on the genres you enjoy</h2>
 
 		<form onsubmit="return false">
-			<input type="text" id="search" placeholder="Enter genre..." />
+			<!-- <input type="text" id="search" placeholder="Enter genre..." /> -->
+			<select id="search">
+				<option disabled selected>Select genre...</option>
+				<option>Alternative/Indie</option>
+				<option>Blues</option>
+				<option>Cast Recordings/Cabaret</option>
+				<option>Christian/Gospel</option>
+				<option>Childrens</option>
+				<option>Classical/Opera</option>
+				<option>Comedy/Spoken Word</option>
+				<option>Blues</option>
+				<option>Country</option>
+				<option>Electronica/Dance</option>
+				<option>Folk</option>
+				<option>Instrumental</option>
+				<option>Jazz</option>
+				<option>Latin</option>
+				<option>New Age</option>
+				<option>Pop</option>
+				<option>Rap/Hip Hop</option>
+				<option>Reggae/Ska</option>
+				<option>Rock</option>
+				<option>Seasonal</option>
+				<option>Soundtracks</option>
+				<option>Vocals</option>
+				<option>World</option>
+			</select>
 			<input type="submit" value="Go" id="go"/>
 		</form>
 	</div>
@@ -41,22 +68,60 @@
 					</ul>
 				</div>
 			</nav>
+
+			<h2>Select a genre</h2>
 			<form onsubmit="return false">
-				<input type="text" id="search2" placeholder="Enter genre..." />
+				<select id="search2">
+				<option disabled selected>Select genre...</option>
+				<option>Alternative/Indie</option>
+				<option>Blues</option>
+				<option>Cast Recordings/Cabaret</option>
+				<option>Christian/Gospel</option>
+				<option>Childrens</option>
+				<option>Classical/Opera</option>
+				<option>Comedy/Spoken Word</option>
+				<option>Blues</option>
+				<option>Country</option>
+				<option>Electronica/Dance</option>
+				<option>Folk</option>
+				<option>Instrumental</option>
+				<option>Jazz</option>
+				<option>Latin</option>
+				<option>New Age</option>
+				<option>Pop</option>
+				<option>Rap/Hip Hop</option>
+				<option>Reggae/Ska</option>
+				<option>Rock</option>
+				<option>Seasonal</option>
+				<option>Soundtracks</option>
+				<option>Vocals</option>
+				<option>World</option>
+			</select>
 				<input type="submit" value="Go" id="go2"/>
 			</form>
 		</header>
-
 		<section id="results">
 			<div class="contain">
-
-				<h2>Genre: <span id="genreName"></span></h2> 
+				<!-- <select>
+					<option>Gender</option>
+					<option>Popularity</option>
+				</select> -->
+				<h3>Genre: <span id="genreName"></span></h3>
+				<a href="#" id="showList">My List</a> 
+				
 
 				<section id="artists"></section>
 			</div>
 		</section>
+		<div id="myList"></div>
 	</div>
+
+	<footer>
+		<p>Copyright ArtistFind 2016</p>
+		<p>Site by Emily Kaneff</p>
+	</footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

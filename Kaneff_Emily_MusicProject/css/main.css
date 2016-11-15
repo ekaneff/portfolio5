@@ -38,6 +38,16 @@ header {
 	color: white;
 }
 
+.text {
+	display: none;
+}
+
+span {
+	font-family: 'Rubik', sans-serif;
+	color: #60836D;
+	font-size: 20px;
+}
+
 /* 
 ===============================
           NAVIGATION
@@ -52,7 +62,7 @@ nav h1 {
 	font-family: 'Bitter', serif;
 }
 
-ul {
+nav ul {
 	float: right;
 	margin: 20px 0;
 }
@@ -89,7 +99,7 @@ nav::after {
 ===============================
 */
 
-#cta{
+#cta {
 	color: white;
 	text-align: center;
 	font-size: 60px;
@@ -111,24 +121,39 @@ nav::after {
 	margin: 0 auto;
 }
 
-#main input[type=text] {
-	border: 2px solid #ccc;
+/*#main input[type=text] {
+	border: none;
 	border-radius: 5px;
 	width: 60%;
 	height: 40px;
-	padding: 5px;
+	padding: 5px 10px;
+	font-size: 25px;
+}*/
+
+#main #search {
+	border: none;
+	border-radius: 5px;
+	width: 60%;
+	height: 50px;
+	padding: 5px 10px;
 	font-size: 25px;
 }
 
 #main input[type=submit] {
 	border: none;
-	background: rgba(137, 225, 175, .95);
 	height: 50px;
 	width: 80px;
 	padding: 5px;
 	font-size: 25px;
 	border-radius: 5px;
+	background: #93C0A4;
+	border: 3px solid #93C0A4;
+	box-shadow: 0 5px 0 #60836D;
+	color: white;
+	position: relative;
 }
+
+
 
 /* 
 ===============================
@@ -136,17 +161,27 @@ nav::after {
 ===============================
 */
 
+
 #dash {
 	display: none;
+	margin-bottom: 100px;
+}
+
+#dash h2 {
+	text-align: center;
+	font-size: 50px;
 }
 
 #dash nav {
-	background: rgba(147,192,164,.90);
+	background: rgba(147,192,164,.95);
 	margin-bottom: 50px;
 }
 
 #dash header {
-	background: url('../assets/headerbg.jpeg');
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+    ), url('../assets/headerbg.jpeg');
 	background-position: center center;
   	background-size: cover;
 	background-repeat: no-repeat;
@@ -160,23 +195,41 @@ nav::after {
 	margin: 0 auto;
 }
 
-#dash input[type=text] {
-	border: 2px solid #ccc;
+#dash #search2 {
+	border: none;
 	border-radius: 5px;
 	width: 60%;
-	height: 40px;
-	padding: 5px;
+	height: 50px;
+	padding: 5px 10px;
 	font-size: 25px;
 }
 
 #dash input[type=submit] {
 	border: none;
-	background: rgba(147,192,164,.90);
 	height: 50px;
 	width: 80px;
 	padding: 5px;
 	font-size: 25px;
 	border-radius: 5px;
+	background: #93C0A4;
+	border: 3px solid #93C0A4;
+	box-shadow: 0 5px 0 #60836D;
+	color: white;
+	position: relative;
+}
+
+#dash input[type=submit]:active {
+	box-shadow: 0 2px 0 #60836D;
+	top: 3px;
+}
+
+#dash input[type=submit]:focus {
+	outline: none;
+}
+
+#genreName {
+	text-transform: uppercase;
+	font-size: 45px;
 }
 
 /* 
@@ -185,11 +238,175 @@ nav::after {
 ===============================
 */
 
-#dash h2 {
+#dash h3 {
 	border-bottom: 2px solid #ccc;
 }
 
+#dash h4 {
+	font-size: 20px;
+	margin: 10px;
+}
 
+#artists::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#artists {
+	text-align: center;
+}
+
+#artists article {
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 8px;
+	text-align: center;
+	border: 2px solid black;
+}
+
+#artists article img {
+	min-width: 100%;
+	min-height: 200px;
+}
+
+#artists article p {
+	margin: 0;
+}
+
+.images {
+	height: 200px;
+	width: 100%;/*
+	border-radius: 50%;*/
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.add {
+	background: #93C0A4;
+	border: 3px solid #93C0A4;
+	border-radius: 2px;
+	box-shadow: 0 5px 0 #60836D;
+	color: white;
+	position: relative;
+	font-size: 15px;
+}
+
+.add:active {
+	box-shadow: 0 2px 0 #60836D;
+	top: 3px;
+}
+
+.add:focus {
+	outline: none;
+}
+
+/* 
+===============================
+           MY LIST
+===============================
+*/
+
+#myList {
+	width: 100%;
+	background: rgba(0,0,0,.9);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	color: white;
+	height: 100%;
+	right: -17px;
+    overflow-y: scroll;
+	/*padding-bottom: 200px;*/
+}
+
+#myList article {
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 8px;
+	text-align: center;
+}
+
+#myList article img {
+	min-width: 100%;
+	min-height: 200px;
+}
+
+#myList article p {
+	margin: 0;
+}
+
+#myList a {
+	color: white;
+	font-size: 40px;
+	text-decoration: none;
+	float: right;
+}
+
+#myList::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#myList h1 {
+	color: white;
+	text-align: center;
+}
+
+#showList {
+	float: right;
+	margin-top: -85px;
+	font-size: 20px;
+	text-decoration: none;
+	padding: 15px;
+	background: #93C0A4;
+	color: white;
+	border-radius: 5px;
+}
+
+.del {
+	background: #ED6A5E;
+	border: 3px solid #ED6A5E;
+	border-radius: 2px;
+	box-shadow: 0 5px 0 #D54F5E;
+	color: white;
+	position: relative;
+	font-size: 10px;
+}
+
+.del:active {
+	box-shadow: 0 2px 0 #D54F5E;
+	top: 3px;
+}
+
+.del:focus {
+	outline: none;
+}
+
+
+/* 
+===============================
+           FOOTER
+===============================
+*/
+
+footer {
+	background: #ccc;
+	padding: 50px 0;
+	color: white;
+	display: none;
+}
+
+footer p {
+	font-size: 20px;
+	text-align: center;
+}
 
 
 
